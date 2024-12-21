@@ -1,0 +1,21 @@
+@startuml
+
+class PlayerData{
+    - int thoiGian, countdown, grade
+    void attach(IDashboard dashboard)
+    void dettach(IDashboard dashboard)
+    void setThoiGian(int thoiGian)
+    void setCountdown(int countdown)
+    void setGrade(int grade)
+}
+class Dashboard
+interface IDashboard{
+    void hienThiTT(PlayerData data)
+}
+
+PlayerData <-- Dashboard : data
+IDashboard <-- PlayerData : dashboard
+Dashboard ..|> IDashboard
+
+
+@enduml

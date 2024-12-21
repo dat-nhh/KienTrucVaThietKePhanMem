@@ -1,0 +1,15 @@
+@startuml
+interface Tokenize{
+    List<String> tokenize();
+}
+class TachTu{
+    String s;
+}
+abstract TokenDecorator
+
+Tokenize <|.. TachTu
+Tokenize <|.. TokenDecorator
+TokenDecorator --> Tokenize : token
+TokenDecorator <|-- RemoveStopWord
+TokenDecorator <|-- RemovePunctuation
+@enduml

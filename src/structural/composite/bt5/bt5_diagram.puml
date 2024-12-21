@@ -1,0 +1,19 @@
+@startuml
+
+interface UI{
+    + String show()
+}
+
+UI <|.. Layout
+UI <|.. Component
+Layout *--> UI:children
+
+note left of Layout
+    Composite
+end note
+
+note right of Component
+    Component
+end note
+
+@enduml

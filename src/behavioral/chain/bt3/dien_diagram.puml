@@ -1,0 +1,17 @@
+@startuml
+
+abstract class GiaDien{
+    String id
+    int gia
+    int min, max
+    void tinhTien(int mucsd, int tien)
+    GiaDien bacTren(GiaDien b)
+}
+class Bac
+class BacCaoNhat
+
+GiaDien <|-- BacCaoNhat
+GiaDien <|-- Bac
+Bac --> GiaDien : bacTren
+
+@enduml

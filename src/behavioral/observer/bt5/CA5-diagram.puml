@@ -1,0 +1,22 @@
+@startuml
+
+
+class ATM{
+    + void attach()
+    + void detach()
+    + void rutTien()
+}
+
+interface ITaiKhoan{
+    boolean kiemTraSoDu()
+    void nhanThongBao()
+}
+
+class TaiKhoan{
+    int soDu
+}
+
+TaiKhoan ..> ITaiKhoan
+ATM <-- TaiKhoan : atm
+ATM --> ITaiKhoan : taiKhoan
+@enduml

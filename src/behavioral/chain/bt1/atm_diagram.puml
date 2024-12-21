@@ -1,0 +1,21 @@
+@startuml
+
+abstract ChuoiMenhGiaFactory{
+    # {abstract} MenhGiaATM getChuoiMenhGia(int menhGia)
+    + void rutTien (int soTien, int menhGiaCaoNhat)
+}
+
+abstract MenhGiaATM{
+    int menhGia
+    {abstract} void rutTien(int tienRut)
+    {abstract} MenhGiaATM mgNhoHon(MenhGiaATM mg)
+}
+
+MenhGiaATM <|-- MenhGia
+MenhGiaATM <|-- MenhGiaNhoNhat
+MenhGiaNhoNhat --> MenhGiaATM : mgNhoHon
+ChuoiMenhGiaFactory <|-- ChuoimenhGiaVND
+MenhGiaATM *--> ChuoimenhGiaVND
+
+
+@enduml

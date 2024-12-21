@@ -1,0 +1,28 @@
+@startuml
+abstract NhanVienF88{
+    String ten, chucVu
+    int hanMucDuyetVay
+    public {abstract} void duyetVay(int tienVay)
+    public {abstract} NhanVienF88 capTren(NhanVienF88 nv)
+}
+
+NhanVienF88 <|-- ChuTich
+NhanVienF88 <|-- NhanVien
+NhanVien --> NhanVienF88 : capTren
+
+note bottom of ChuTich
+    Phương thức duyetVay:
+        Nếu tienVay <= hanMucDuyetVay
+            in: Chủ tịch duyệt mức vay tienVay
+        Ngược lại:
+            Ra Eximbank vay
+end note
+
+note bottom of NhanVien
+    Phương thức duyetVay:
+        Nếu tienVay <= hanMucDuyetVay
+            in: chucVu duyệt mức vay tienVay
+        Ngược lại:
+            Chuyển khoản vay cho capTren duyệt
+end note
+@enduml

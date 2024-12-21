@@ -1,0 +1,15 @@
+@startuml
+
+interface Iterable
+interface Iterator
+class ArrayAggregate{
+    - int[] array
+    + int getItem(int i)
+    + int count()
+}
+
+Iterable <|.. ArrayAggregate
+Iterator <|.. ArrayIterator
+ArrayIterator --> ArrayAggregate : array
+
+@enduml

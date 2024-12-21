@@ -1,0 +1,32 @@
+@startuml
+
+abstract class BNode
+
+BNode <|-- InnerNode
+BNode <|.. Leaf
+InnerNode --> "1 " BNode : left
+InnerNode --> "1 " BNode : right
+
+abstract class BNode{
+    int value
+    + {abstract} void addL(BNode node)
+    + {abstract} void addR(BNode node)
+    + {abstract} void removeL(BNode node)
+    + {abstract} void removeR(BNode node)
+    + {abstract} String travel()
+}
+
+class InnerNode{
+    + String travel()
+}
+
+note left of InnerNode::travel
+    Duyệt cây theo thứ tự NLR
+    - Đưa value của node vào StringBuilder
+    - Kiểm tra left!=null:
+        Đưa chuỗi của left này vào StringBuilder
+    - Kiểm tra right!=null:
+        Đưa chuỗi của right này vào StringBuilder
+end note
+
+@enduml

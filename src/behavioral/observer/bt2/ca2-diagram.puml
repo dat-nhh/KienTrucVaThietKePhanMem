@@ -1,0 +1,21 @@
+@startuml
+
+class Button{
+    void attach(IActivity activity)
+    void detach(IActivity activity)
+    void onClick()
+
+}
+class Activity{
+    int click;
+}
+interface IActivity{
+    void hienThi(Button button)
+}
+
+Button <-- Activity : button
+IActivity <-- Button : activity
+Activity ..|> IActivity
+
+
+@enduml
